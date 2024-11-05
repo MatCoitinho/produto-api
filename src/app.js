@@ -27,7 +27,6 @@ const swaggerOptions = {
 };
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
-console.log(swaggerDocs)
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 app.use(express.json());
