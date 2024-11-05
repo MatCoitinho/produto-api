@@ -1,11 +1,12 @@
 {
   "name": "produto-api",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "node ./src/main.js",
+    "start:dev": "nodemon ./src/app.js",
     "create": "docker run -d --name bancoProduto -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root  -e POSTGRES_DB=bancoProduto postgres",
     "migration": "node ./infra/initDB.js",
     "seed": "node ./infra/seed.js"
@@ -17,7 +18,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "pg": "^8.13.1"
+    "pg": "^8.13.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"

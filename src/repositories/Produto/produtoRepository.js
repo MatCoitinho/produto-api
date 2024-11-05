@@ -47,8 +47,7 @@ export class ProdutoRepository {
         }
     }
 
-    async update(props) {
-        const { id, descricao, preco, estoque, data } = props;
+    async update(id, descricao, preco, estoque, data) {
         try {
             const resultado = await this.pool.query(
                 "UPDATE produto SET Descricao = $1, Preco = $2, Estoque = $3, Data = $4 WHERE ID = $5",

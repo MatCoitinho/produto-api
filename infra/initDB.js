@@ -18,6 +18,7 @@ async function createDB() {
         await pool.query(`CREATE DATABASE ${BD_DATABASE}`);
         console.log(`Banco de Dados criado com sucesso.`);
     } catch (erro) {
+        console.log(erro)
         console.error('Ocorreu um erro ao criar o Banco de Dados');
     }
     const dbPool = new Pool({
@@ -39,6 +40,7 @@ async function createDB() {
 
         console.log('Tabela "produto" criada com sucesso.');
     } catch (err) {
+        console.log(err);
         console.error('Erro ao tentar criar tabela do produto');
     }
     await dbPool.end();

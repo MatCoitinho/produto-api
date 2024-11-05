@@ -3,15 +3,15 @@ const { Pool } = pkg;
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env' });
 
-const { DB_USER, DB_HOST, DB_DATABASE, DB_PASSWORD, DB_PORT } = process.env;
+const { BD_USER, BD_HOST, BD_DATABASE, BD_PASSWORD, BD_PORT } = process.env;
 
 async function insertDB() {
     const dbPool = new Pool({
-        user: DB_USER,
-        host: DB_HOST,
-        database: DB_DATABASE,
-        password: DB_PASSWORD,
-        port: DB_PORT,
+        user: BD_USER,
+        host: BD_HOST,
+        database: BD_DATABASE,
+        password: BD_PASSWORD,
+        port: BD_PORT,
     });
 
     try {
@@ -26,6 +26,7 @@ async function insertDB() {
 
         console.log('Foram inseridos 5 produtos no Banco de Dados.');
     } catch (err) {
+        console.log(err)
         console.error('Ocorreu um erro ao tentar inserir os produtos no Banco de Dados');
     } finally {
         await dbPool.end();

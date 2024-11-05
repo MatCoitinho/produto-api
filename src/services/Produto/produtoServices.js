@@ -1,4 +1,4 @@
-import { Produto } from "../entities/produto.js";
+import { Produto } from "../../entities/Produto/Produto.js";
 
 export class ProdutoService {
     constructor(produtoRepo) {
@@ -6,7 +6,7 @@ export class ProdutoService {
     }
 
     async create(descricao, preco, estoque, data) {
-        const novoProduto = new Produto({ descricao, preco, estoque, data });
+        const novoProduto = new Produto(null, descricao, preco, estoque, data);
         const resposta = await this.produtoRepository.create(novoProduto);
         const novoProdutoId = resposta.id;
         const buscaProduto = await this.produtoRepository.getOneById(novoProdutoId);
@@ -28,18 +28,13 @@ export class ProdutoService {
         return resposta;
     }
 
-    async update(id, { _id, descricao, preco, estoque, data }) {
-        const produtoEstadoAtual = await this.produtoRepository.getOneById(id);
-        if (!produtoEstadoAtual) throw new Error("Produto não encontrado");
-
-        const produto = new Produto({
-            id,
-            descricao: descricao || produtoEstadoAtual.descricao,
-            preco: preco || produtoEstadoAtual.preco,
-            estoque: estoque || produtoEstadoAtual.estoque,
-            data: data || produtoEstadoAtual.data,
-        });
-        const resposta = await this.produtoRepository.update(produto.toJSON());
-        return resposta;
+    async update(id, descricao, preco, estoque, data, res) {
+        try {
+            await this.produtoRepository.update(id,descricao,preco,estoque,data);
+            res.status(200).json({ message: 'Produto atualizado com sucesso' });
+        } catch (error) {
+            res.status(500).json({ message: `Erro ao atualizar produto: ${error.message}` });
+        }
     }
+
 }

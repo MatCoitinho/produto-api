@@ -31,10 +31,9 @@ export class ProdutoController {
     }
 
     async update(req, res) {
-        const { id, descricao, preco, estoque, data } = req.body;
-        const _id = req.params;
-        const Id = _id.id;
-        const produtoAtualizado = await this.produtoService.update(Id, { id, descricao, preco, estoque, data });
+        const { descricao, preco, estoque, data } = req.body;
+        const id = req.params.id;
+        const produtoAtualizado = await this.produtoService.update(id, descricao, preco, estoque, data, res);
         return res.status(201).json(produtoAtualizado);
     }
 }
