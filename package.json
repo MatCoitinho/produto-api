@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start:dev": "node ./src/main.js",
-    "create:db": "docker run -d --name bancoProduto -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root  -e POSTGRES_DB=bancoProduto postgres",
+    "create": "docker run -d --name bancoProduto -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root  -e POSTGRES_DB=bancoProduto postgres",
     "migration": "node ./infra/initDB.js",
     "seed": "node ./infra/seed.js"
   },

@@ -30,6 +30,7 @@ API desenvolvida em JavaScript com Express e PostgreSQL, gerenciada via Docker. 
 
 4. **Criação da tabela**
     ```bash
+    npm run migration
 
 5. **Seed do banco de dados**
     Adiciona 5 produtos no banco de dados
