@@ -51,4 +51,5 @@ API desenvolvida em JavaScript com Express e PostgreSQL, gerenciada via Docker. 
     npm run start:dev
 
 8. **Comportamento dos endpoints**
+
     Neste projeto foi usado a ferramenta swagger para facilitar a interação com a api. Para acessar acesse: http://localhost:${API_PORT}/docs para visualizar cada endpoint disponível, com as explicações dos parâmetros necessários em cada um.
