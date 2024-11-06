@@ -64,7 +64,7 @@ export class ProdutoRepository {
 
     async getAll() {
         try {
-            const resultado = await this.pool.query("SELECT * FROM produto");
+            const resultado = await this.pool.query("SELECT * FROM produto ORDER BY ID");
             if (resultado.rows.length > 0) {
                 return resultado.rows;
             }
