@@ -39,7 +39,7 @@ API desenvolvida em JavaScript com Express e PostgreSQL, gerenciada via Docker. 
 
 6. **Crie um arquivo .env no formato:**
     ```bash
-    API_PORT=
+    API_PORT=8080
     BD_HOST=
     BD_DATABASE= 
     BD_USER= 
